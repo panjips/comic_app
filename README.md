@@ -1,6 +1,9 @@
-# comic_app
+# comic_app [ON HOLD: API Issue]
 
-A new Flutter project.
+Comic App using Flutter. Try to implement BLoC, GoRouter, and Responsive Sizer
+
+## Preview
+![](https://github.com/panjips/comic_app/blob/main/asset/preview.gif)
 
 ## Getting Started
 
