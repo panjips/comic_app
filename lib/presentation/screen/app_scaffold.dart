@@ -1,6 +1,10 @@
+import 'package:comic_app/presentation/bloc/comic/comic_bloc.dart';
 import 'package:comic_app/utils/color_constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class AppScaffold extends StatefulWidget {
@@ -64,10 +68,10 @@ class _AppScaffoldState extends State<AppScaffold> {
         backgroundColor: slate[800],
         selectedItemColor: indigo[500],
         unselectedItemColor: slate[300],
-        margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+        margin: EdgeInsets.symmetric(vertical: 14.sp, horizontal: 20.sp),
         itemShape:
-            BeveledRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        itemPadding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+            BeveledRectangleBorder(borderRadius: BorderRadius.circular(10.sp)),
+        itemPadding: EdgeInsets.symmetric(vertical: 10.sp, horizontal: 12.sp),
         items: _items,
         onTap: onTap,
         currentIndex: _calculateSelectedIndex(context),

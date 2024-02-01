@@ -23,12 +23,12 @@ class ComicModel {
     return ComicModel(
         title: data['title'] != null ? data['title'] as String : null,
         type: data['type'] != null ? data['type'] as String : null,
-        rating: data['rating'] != null ? data['rating'] as String : null,
-        newChapter:
-            data['newChapter'] != null ? data['newChapter'] as String : null,
+        rating: data['rating'] != null ? data['rating'].toString() : null,
+        newChapter: data['latestChapter'] != null
+            ? data['latestChapter'] as String
+            : null,
         url: data['url'] != null ? data['url'] as String : null,
-        thumbnail:
-            data['thumbnail'] != null ? data['thumbnail'] as String : null,
+        thumbnail: data['cover'] != null ? data['cover'] as String : null,
         endpoint: data['endpoint'] != null ? data['endpoint'] as String : null);
   }
   factory ComicModel.fromJson(String source) =>

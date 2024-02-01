@@ -45,12 +45,12 @@ class RectangleCard extends StatelessWidget {
             maxLines: 2,
           ),
         ),
-        SizedBox(
-          width: 28.w,
-          child: Row(
-            children: [
-              rating != null
-                  ? ClipRRect(
+        rating == null
+            ? SizedBox(
+                width: 28.w,
+                child: Row(
+                  children: [
+                    ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Container(
                         padding: const EdgeInsets.only(
@@ -78,19 +78,23 @@ class RectangleCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
-                  : Text(
-                      newChapter!,
-                      style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.normal,
-                        color: slate[600],
-                        fontSize: 12.sp,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4),
+                      child: Text(
+                        newChapter!,
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.normal,
+                          color: slate[600],
+                          fontSize: 12.sp,
+                        ),
                       ),
                     ),
-            ],
-          ),
-        )
+                  ],
+                ),
+              )
+            : SizedBox(),
       ],
     );
   }

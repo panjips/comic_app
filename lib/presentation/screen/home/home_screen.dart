@@ -8,6 +8,7 @@ import 'package:comic_app/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,8 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 16, top: 52, right: 16),
+                      padding: EdgeInsets.only(left: 16, top: 28.sp, right: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -117,6 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             rating: state.trendingDatas[index].rating!,
                             title: state.trendingDatas[index].title!,
                             thumbnail: state.trendingDatas[index].thumbnail!,
+                            newChapter: state.trendingDatas[index].newChapter!,
                           ),
                         );
                       },
@@ -171,13 +172,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 sliver: SliverGrid(
                   delegate: SliverChildBuilderDelegate((context, index) {
                     return GestureDetector(
+                      onTap: () => context.goNamed('detail', queryParameters: {
+                        "url": state.updateDatas[index].url,
+                        "thumbnail": state.updateDatas[index].thumbnail,
+                      }),
                       child: SquareCard(
                         thumbnail: state.updateDatas[index].thumbnail!,
                         title: state.updateDatas[index].title!,
                         newChapter: state.updateDatas[index].newChapter!,
                       ),
                     );
-                  }, childCount: state.updateDatas.length - 1),
+                  }, childCount: state.updateDatas.length),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 1 / 1.5,
